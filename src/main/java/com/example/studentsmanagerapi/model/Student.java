@@ -1,12 +1,6 @@
 package com.example.studentsmanagerapi.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import java.util.Set;
 import java.util.HashSet;
@@ -14,7 +8,8 @@ import java.util.HashSet;
 @Entity
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "StudentSequence")
+    @GeneratedValue(generator = "StudentSequence")
     private Long id;
 
     private String name;

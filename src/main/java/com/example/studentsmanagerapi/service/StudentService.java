@@ -5,6 +5,7 @@ import com.example.studentsmanagerapi.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -22,8 +23,8 @@ public class StudentService {
         studentRepository.save(student);
     }
 
-    public void deleteStudent(Long studentId) {
-        studentRepository.deleteById(studentId);
+    public void deleteStudent(Long id) {
+        studentRepository.deleteById(id);
     }
 
     public void updateStudent(Student student) {

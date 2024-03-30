@@ -1,8 +1,9 @@
-POST http://localhost:8080/api/v1/students/
+PATCH http://localhost:8080/api/v1/students/53
 Content-Type: application/json
 
 {
-  "name": "peterr",
-  "email": "peterr@gmail.com",
+  "name": "peter1asck2",
+  "email": "peter12@gmail.com",
   "password": "123123"
 }
+####

@@ -20,25 +20,24 @@ public class StudentController {
         return studentService.getStudents();
     }
 
-    @PostMapping(value = "/", consumes = {"application/json"})
+    @PostMapping
     public void registerNewStudent(@RequestBody Student student) {
-        System.out.println(student);
         studentService.addNewStudent(student);
-        System.out.println("User Created!");
     }
 
-    @GetMapping(path = "{studentId}")
-    public Student getStudentById(Long studentId) {
-        return studentService.getStudentById(studentId);
+    @GetMapping(path = "/{id}")
+    public Student getStudentById(@PathVariable("id") Long id) {
+        return studentService.getStudentById(id);
     }
 
-    @PostMapping(path = "{studentId}")
-    public void updateStudent(Long studentId, Student student) {
+    @PatchMapping(path = "/{id}")
+    public void updateStudent(@PathVariable("id") Long id, @RequestBody Student student) {
+        student.setId(id);
         studentService.updateStudent(student);
     }
 
-    @GetMapping(path = "{studentId}/delete")
-    public void deleteStudent(Long studentId) {
-        studentService.deleteStudent(studentId);
+    @DeleteMapping(path = "/{id}")
+    public void deleteStudent(@PathVariable("id") Long id) {
+        studentService.deleteStudent(id);
     }
 }
